@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>杨源吉的简历</title>
+  <meta name="description" content="杨源吉的简历,苹果透明效果，毛玻璃，运用原生js，jquery,网页描点定位平滑移动">
+  <meta name="keyword" content="杨源吉,web前端工程师简历,qq1185907977,jquery,原生js">
+  <link rel="icon" href="images/favicon.ico"  />
+  <link rel="stylesheet" href="css/jquery.autoMenu.css">
+  <style>
+    .clearfix:before,.clearfix:after {
+      content: "";
+      display: table;
+
+    }
+    .clearfix:after {
+      clear: both;						/* 双伪元素清除浮动 */
+    }
+    .clearfix {
+      *zoom: 1;							/* ie浏览器兼容 */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h3.jianjie{
+
+      position: absolute;
+      width: 100px;
+      height: 30px;
+      z-index: 200;
+      top: 218px;
+      left:50px;
+      font-family: "楷体";
+      font-size: 20px;
+      color: #a4a0a1;
+      /*box-shadow:0 0 10px #CCC;*/
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding-top: 4px;
+
+    }
+
+    .content {
+      position: relative;
+    }
+    html {
+      margin:auto;
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      margin:auto;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    #screen ul {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 9600px;
+      height: auto;
+    }
+    .fixed {
+      position: fixed;
+      top: 0px;
+      right: 20px;
+    }
+    #screen li {
+      float: left;
+      list-style: none;
+      height: 1000px;
+      width: 1600px;
+    }
+    #screen {
+      height:1000px;
+      width: 1600px;
+      overflow: hidden;
+      position: relative;
+      left: 0;
+      top: 0px;
+      /*border: 1px solid red;*/
+    }
+    #screen img {
+      /*filter: blur(5px)*/
+    filter: blur(3px);
+
+    }
+  #mark {
+    width: 1600px;
+    height: 1000px;
+    background: rgba(255, 255,255,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+
+  }
+
+  .shuzi {
+    height: 600px;
+    width: 1600px;
+    /*background-color: #3fc72d;*/
+    position: relative;
+    background-image: url("images/cpu.jpg");
+
+    }
+
+
+    .love {
+      height: 600px;
+      width: 1600px;
+      /*background-color: #3fc72d;*/
+      position: relative;
+       color: #fff;
+       background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+       background-size: 400% 400%;
+       -webkit-animation: Gradient 15s ease infinite;
+       -moz-animation: Gradient 15s ease infinite;
+       animation: Gradient 15s ease infinite;
+
+    }
+    @-webkit-keyframes Gradient {
+      0% {
+        background-position: 0% 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    @-moz-keyframes Gradient {
+      0% {
+        background-position: 0% 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    @keyframes Gradient {
+      0% {
+        background-position: 0% 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+
+    .anniu {
+      z-index: 33;
+      font-size: 10px;
+      padding: 0px 14px;
+      position: absolute;
+      left: 200px;
+      top: 13px;
+      font-weight: normal;
+      color: #fff;
+      margin: 0;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
+      background: #a498ae;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px #a498ae;
+    }
+    .anniu2 {
+      z-index: 33;
+      font-size: 10px;
+      padding: 0px 14px;
+      position: absolute;
+      left: 300px;
+      top: 13px;
+      font-weight: normal;
+      color: #fff;
+      margin: 0;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
+      background: #a498ae;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px #a498ae;
+    }
+    #mark2 {
+      width: 1600px;
+      height: 200px;
+      z-index: 100;
+      background: rgba(255, 255,255,0.8);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .w {
+      width: 1600px;
+      margin: auto;
+
+    }
+    #front {
+      position: absolute;
+      top: 51px;
+      left: 208px;
+      line-height: 30px;
+      cursor: pointer;
+
+    }
+    #front2 {
+      position: absolute;
+      top: 51px;
+      left: 310px;
+      line-height: 30px;
+      cursor: pointer;
+
+    }
+
+    .masked p {
+      line-height: 50px;
+      /*text-align: left;*/
+    }
+    .masked{
+      position: absolute;
+
+
+      font-size: 25px;
+      z-index: 20;
+      top:500px;
+      left: 400px;
+      -webkit-font-smoothing: antialiased; /*变清晰*/
+      text-align: center;
+      background-image: -webkit-linear-gradient(left, #ff18c3, #FFEB05 25%, #ff18c3 50%, #FFEB05 75%, #ff18c3);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-background-size: 200% 100%;
+      -webkit-animation: masked-animation 4s infinite linear;
+    }
+    @-webkit-keyframes masked-animation {
+      0%{ background-position: 0 0;}
+      100% { background-position: -100% 0;}
+    }
+
+    .myskill {
+      position: absolute;
+      left: 530px;
+      top: 380px;
+      text-align: left;
+      line-height: 40px;
+      /*-webkit-transform: translate3d(0,0,0);*/
+      /*-webkit-transition: opacity 0.8s, -webkit-transform 0.8s;*/
+
+      opacity: 0;
+
+    }
+    .slideShine{
+      background: #000000 -webkit-linear-gradient(left,#000000, #f6d906 50%,#32fa00 80%,#000000) no-repeat 0 0;
+      background-size:80% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /*font-size: 10px;*/
+
+
+    }
+    .slideShine {-webkit-animation: slideShine 15s linear infinite;animation: slideShine 15s linear infinite;}
+    @-webkit-keyframes slideShine {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 59% 50%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+    @keyframes slideShine {
+      0% {background-position: 0 0; }
+      100% {background-position: 50% 50%; }
+      100% {background-position: 100% 100%; }
+    }
+
+    .mayskill-h {
+
+      position: absolute;
+      width: 100px;
+      height: 30px;
+      z-index: 200;
+      top: 10px;
+      left:50px;
+      font-family: "楷体";
+      font-size: 20px;
+      color: #a4a0a1;
+      /*box-shadow:0 0 10px #CCC;*/
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding-top: 4px;
+
+    }
+    .logo h1 a {
+      display:block ;
+      background-image: url("images/logo.jpg");
+      height: 100px;
+      width: 100px;
+      z-index: 400;
+      font-size: 10px;
+      text-indent: -99999px;
+      position: absolute;
+      left: 47px;
+      top: 50px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px #a498ae;
+      /*border: 5px solid #a4a0a1;*/
+     background-size: contain;
+
+    }
+    .bor {
+      border: 10px solid #ff1080;
+      height: 108px;
+      width: 108px;
+      z-index: 400;
+      position: absolute;
+      left: 43px;
+      top: 47px;
+    }
+    .personal {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      left: 1200px;
+      top: 13px;
+      z-index: 1000;
+      font-size: 14px;
+
+    }
+    .personal i {
+     font-style: normal;
+      float: left;
+      margin-top: 6px;
+      margin-right: 6px;
+    }
+    .personal a{
+      display: block;
+    }
+    .personal img {
+    border-radius: 50%;transition: transform 1s ease-out; /* 谁做过度动画写道谁身上 */
+    }
+    .personal img:hover {
+      transform: rotate(360deg);
+    }
+    .personal ul {
+      line-height: 30px;
+      cursor: pointer;
+
+    }
+
+
+   /*人物出现特效 */
+
+    #screen2 li {
+      float: left;
+      list-style: none;
+      margin-right: 100px;
+      position: absolute;
+      margin-top: 65px;
+
+    }
+   #screen2 li img {
+      width: 100px;
+      height: 100px;
+
+    }
+    #screen2 {
+      width: 500px;
+      height: 200px;
+      /*border: 2px solid red;*/
+      position: relative;
+      overflow: hidden;
+      top: 227px;
+      left: 500px;
+      z-index: 1000;
+    }
+    #objul,#obju3,#obju2 {
+      width: 500px;
+      height: 200px;
+      position: absolute;
+      left: 510px;
+    }
+    #screen2 .p1 {
+
+
+      height: 20px;
+      width: 80px;
+
+      display: inline-block;
+      position: absolute;
+      left: -400px;
+      top: 7px;
+      font-family: "楷体";
+
+      color: #a4a0a1;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding-top: 2px;
+
+    }
+
+    #screen2 .p2 {
+      height: 20px;
+      width: 80px;
+      text-align: center;
+      font-family: "楷体";
+      color: #a4a0a1;
+      border-radius: 5px;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.9);
+      position: absolute;
+      left: -300px;
+      top: 7px;
+     padding-top: 2px;
+
+    }
+    #screen2 .p3 {
+      height: 20px;
+      width: 80px;
+      text-align: center;
+      font-family: "楷体";
+      color: #a4a0a1;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 5px;
+      display: inline-block;
+      position: absolute;
+      left:-200px;
+      top: 7px;
+      padding-top: 2px;
+
+    }
+    #screen2 p:hover {
+      color: #3fc72d;
+      cursor: pointer;
+
+    }
+
+    #objul li span{
+      position: absolute;
+      top: 108px;
+      left: 35px;
+      z-index: 1;
+      color: #777777;
+      font-size: 12px;
+    }
+    #obju2 li span{
+      position: absolute;
+      top: 108px;
+      left: 33px;
+      z-index: 1;
+      color: #777777;
+      font-size: 12px;
+    }
+    #obju3 li span{
+      position: absolute;
+      top: 108px;
+      left: 16px;
+      z-index: 1;
+      color: #777777;
+      font-size: 12px;
+    }
+
+  .mywx {
+    height: 900px;
+    width: 1600px;
+    /*background-color: #3fc72d;*/
+    position: relative;
+    background-image: url("images/15.jpg");
+    background-repeat: no-repeat;
+  }
+    .mywx img {
+      position: absolute;
+      left: 718px;
+      top: 400px;
+      width: 100px;
+      height: 100px;
+      box-shadow: 0 5px 20px #a498ae;
+
+    }
+    .mark5 {
+      width: 1600px;
+      height: 900px;
+      z-index: 10;
+      background: rgba(255, 255,255,0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .mywx .mark5 ul {
+   position: absolute;
+      left: 700px;
+      top: 650px;
+    }
+    .mywx .mark5 li {
+
+      float: left;
+      margin-right: 10px;
+      color: #777777;
+
+    }
+    .mywx .mark5 p {
+      position: absolute;
+      left: 596px;
+      top: 703px;
+      color: #777777;
+    }
+  </style>
+</head>
+<body>
+<!--<audio src="audio/Dengiz.mp3" autoplay="autoplay" ></audio>-->
+<div class="content w">
+
+<div class="logo">
+  <div class="bor">
+  </div>
+  <h1>
+    <a href="#web-yyj">web前端工程师的简历</a>
+  </h1>
+</div>
+  <h3 class="jianjie">我的简介</h3>
+  <div class="masked">
+    <p class="jianjie-p">毕业于四川工程职业技术学院，<br>电子科大在读，专业计算机科学与技术，<br>
+      热爱web前端技术，致力于提供最好的用户体验，<br>
+      人们都喜欢美好的事物，我认为一个漂亮的网站更容易使人流连忘返，<br>
+      有继续探索的欲望。
+    </p>
+  </div>
+
+  <div class="w">
+    <div id="screen" >
+      <ul>
+        <li><img src="images/11.jpg" alt=""></li>
+        <li><img src="images/12.jpg" alt=""></li>
+        <li><img src="images/13.jpg" alt=""></li>
+        <li><img src="images/14.jpg" alt=""></li>
+        <li><img src="images/15.jpg" alt=""></li>
+        <li><img src="images/11.jpg" alt=""></li>
+      </ul>
+
+    </div>
+    <div id="wmark">
+
+    </div>
+    <div id="mark2">
+      <div class="fatheranniu">
+        <h1 class="anniu">前端技术</h1>
+        <ul id="front">
+          <li>css</li>
+          <li>html</li>
+          <li>javasctipt</li>
+          <li>jquery</li>
+        </ul>
+      </div>
+      <div class="fatheranniu2">
+        <h1 class="anniu2">我的爱好</h1>
+        <ul id="front2">
+          <li>sing</li>
+          <li>jump</li>
+          <li>rap</li>
+          <li>basketball</li>
+        </ul>
+      </div>
+      <div class="personal">
+        <i>个人资料</i>
+        <a href=""><img src="images/pic.png" alt=""></a>
+        <ul id="front3">
+          <li>电话：<br>15892872209</li>
+          <li>企鹅:<br>1185907977</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<div class="love w">
+  <h3 class="mayskill-h">我的技能</h3>
+  
+  <p class="myskill slideShine">
+    1.熟练使用html，css搭建和美化网站；<br>
+    2.熟练掌握盒模型、常用布局以及浏览器和移动设备兼容性；<br>
+    3.熟悉W3C标准，熟悉Web语义化；<br>
+    4.熟练使用原生js或者jquery库写特效；<br>
+    5.熟练使用至少一种JS框架，熟练Reactjs、Vue等，掌握其原理，能独立开发常用组件；<br>
+    6.熟练使用ps或者cuttman切图，能使用ps制作简单的图片；<br>
+    7.具有一定的审美能力，善于交流，善于思考，对待问题积极解决；<br>
+    8.了解后台语言php，java；
+  </p>
+
+</div>
+
+<div class="shuzi w">
+  <h3 class="mayskill-h">我的爱好</h3>
+  <div id="screen2">
+    <ul id="objul">
+      <p class="p1" id="chufa">SING</p>
+      <li><span>SING</span><img src="images/0.png" alt=""></li>
+      <li><span>SING</span><img src="images/1.png" alt=""></li>
+      <li><span>SING</span><img src="images/2.png" alt=""></li>
+      <li><span>SING</span><img src="images/3.png" alt=""></li>
+    </ul>
+    <ul id="obju2">
+      <p class="p2">JUMP</p>
+      <li><span>JUMP</span><img src="images/4.png" alt=""></li>
+      <li><span>JUMP</span><img src="images/5.png" alt=""></li>
+      <li><span>JUMP</span><img src="images/6.png" alt=""></li>
+      <li><span>JUMP</span><img src="images/7.png" alt=""></li>
+    </ul>
+    <ul id="obju3">
+      <p class="p3">BASKETBALL</p>
+      <li><span>BASKETBALL</span><img src="images/8.png" alt=""></li>
+      <li><span>BASKETBALL</span><img src="images/9.png" alt=""></li>
+      <li><span>BASKETBALL</span><img src="images/10.png" alt=""></li>
+      <li><span>BASKETBALL</span><img src="images/20.png" alt=""></li>
+    </ul>
+  </div>
+
+
+</div>
+
+<div class="mywx w" id="web-yyj">
+  <h3  class="mayskill-h">我的微信</h3>
+
+  <div class="mark5">
+    <img src="images/wwxx.png" alt="">
+    <ul>
+      <li>代码&nbsp&nbsp|</li>
+      <li>梦想&nbsp&nbsp|</li>
+      <li>未来</li>
+    </ul>
+    <p>前进道路上，亦有良师益友，交个朋友，夜话天下</p>
+  </div>
+
+
+
+</div>
+<div class="autoMenu w" id="autoMenu" data-autoMenu > </div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.autoMenu.js"></script>
+
+<script>
+  var objul=document.getElementById("screen").children[0];
+  var objli=objul.children;
+  var pic= 0
+  var imgwidth=document.getElementById("screen").offsetWidth;
+
+
+  var timeId =window.setInterval(clickHandle,7000)
+  function clickHandle() {
+    if (pic==objli.length-1) {    //一共6张图片，如果移动了5张，则要返回到第一张，切pic置0，理解为第6张出现了
+      objul.style.left=0+"px";
+      pic=0;
+    }
+    pic++;                    //点击按钮pic加1.向右移动一格
+    animate(objul,-imgwidth*pic);
+    console.log(pic)
+  }
+
+  console.log(imgwidth);
+  //=============移动函数=============
+  function animate(elment,target) {
+    clearInterval(elment.timeid);//每次先清理定时器。以免点击是重复创建
+    elment.timeid=window.setInterval(function () {
+      var current=elment.offsetLeft;//数字类型
+      var step=10;
+
+      step=target>=current?step:-step;//判断向左还是像右边移动
+      current=current+step;  //每次移动后的距离
+      if (Math.abs(target-current)>Math.abs(step)) {  //没到目的地？
+        elment.style.left=current+"px";   //每到left就等于每次移动后的距离
+
+      }else{
+        clearInterval(elment.timeid);
+        elment.style.left=target+"px";
+      }
+    },10)
+
+  }
+
+</script>
+<!--右侧导航栏代码-->
+<script>
+  $(function () {
+    $(window).scroll(function () {
+      if ($(window).scrollTop()>=240){
+        console.log($(window).scrollTop())
+
+
+        $(".autoMenu").addClass("autoMenu fixed");
+
+      }else {
+        $(".autoMenu").removeClass("fixed");
+      }
+
+      var idx=$(".active").index();
+      console.log(idx)
+      if (idx==1){
+        $(".myskill").animate({"top":180,"opacity":1},1000);
+      }
+      console.log($("#autoMenu li").eq(1).attr("class"));
+      $("#autoMenu li").eq(1).addClass("current")
+      console.log($("#autoMenu li").eq(1).attr("class"));
+    })
+//音乐播放代码
+    var src = "audio/Dengiz.mp3";
+    var body = document.getElementsByTagName("body")[0];
+
+    if (body.getElementsByTagName("audio").length <= 0) {
+      var audio = document.createElement("audio");
+      audio.setAttribute("id", "awardAudio");
+      audio.setAttribute("src", src);
+      body.appendChild(audio);
+
+      //判断音频是否加载完成?
+      audio.addEventListener(
+        "canplaythrough",
+        function() {
+          audio.play();
+          setTimeout(function() {
+            body.removeChild(audio);
+          }, audio.duration * 1000 + 100);
+        },
+        false
+      );
+    }
+
+  //人物出现代码
+
+    $("#screen2 p").mouseover(function () {
+      $(this).parent().addClass("current").siblings().removeClass("current");
+      $(this).parent().show().siblings().children("li").stop().css("left",500) // 其他到500，可以改效果，加stop避免动作过快没执行完触发下一个
+
+      console.log(  $(".current").children("li"))
+      console.log( $(".current").siblings("img"))
+      var index = $(".current").index();
+      console.log(index);
+      if (index==0){
+
+        $("#objul li").eq(0).stop().animate({"left":-500},200,function () {
+          $("#objul li").eq(1).stop().animate({"left":-380},200,function () {
+            $("#objul li").eq(2).stop().animate({"left":-260},200,function () {   //当上一个动画结束后再执行回调函数里的下一个动画
+              $("#objul li").eq(3).stop().animate({"left":-140},200,function () {
+
+              });
+            });
+          });
+        });
+        //$(".current").show().children("li").hide
+      } else if(index==1){
+        $("#obju2 li").eq(0).stop().animate({"left":-500},200,function () {
+          $("#obju2 li").eq(1).stop().animate({"left":-380},200,function () {
+            $("#obju2 li").eq(2).stop().animate({"left":-260},200,function () {   //当上一个动画结束后再执行回调函数里的下一个动画
+              $("#obju2 li").eq(3).stop().animate({"left":-140},200);
+            });
+          });
+        });
+
+      }else if(index==2){
+        $("#obju3 li").eq(0).stop().animate({"left":-500},200,function () {
+          $("#obju3 li").eq(1).stop().animate({"left":-380},200,function () {
+            $("#obju3 li").eq(2).stop().animate({"left":-260},200,function () {   //当上一个动画结束后再执行回调函数里的下一个动画
+              $("#obju3 li").eq(3).stop().animate({"left":-140},200);
+            });
+          });
+        });
+        // $(".current").siblings("li").hide()
+      }
+
+
+
+    });
+    $("#chufa").mouseover();  //自动触发一次，必须卸载注册事件的后
+
+
+  })
+
+
+</script>
+<!--弹出事件代码-->
+<script>
+  $(function () {
+
+    //mouseover：鼠标经过事件
+    //mouseout:鼠标离开事件
+
+    //mouseenter:鼠标进入事件
+    //mouseleave：鼠标离开事件
+
+    var $li = $("#mark2>div");
+
+    //给li注册鼠标经过事件，让自己的ul显示出来
+    $li.mouseenter(function () {
+      //找到所有的儿子，并且还得是ul
+      $(this).children("ul").stop().slideDown();
+    });
+
+    $li.mouseleave(function () {
+      $(this).children("ul").stop().slideUp();
+    });
+    $(".personal").off();
+///框的特效
+    window.setInterval(function () {
+      $(".bor").animate({"opacity":1}).delay(500).animate({"opacity":0})
+    },200)
+
+
+  });
+
+</script>
+</body>
+</html>
